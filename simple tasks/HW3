@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Approval</title>
+</head>
+<body>
+    <script>
+        let studentGeneralMark = prompt("Student's General Mark \n enter 0-10")
+        let studentBudget = prompt("Student's budget \n enter 0-1000000")
+        let studentConnection = prompt("Student's connection \n enter 0(false) or 1(true)")
+        const UniversityGrade = 7
+        const UniversityBudget = 40000
+        const UniversityConnection = 1
+        let approve = 
+        studentGeneralMark >= UniversityGrade || studentBudget >= UniversityBudget || studentConnection == UniversityConnection
+    alert("Will he ever be approved: " + approve)
+    </script>
+</body>
+</html>

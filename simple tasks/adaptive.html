@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS example of adaptive page</title>
+    <style>
+        .tittle-large{
+            padding: 3em;
+            color: blue;
+        }
+        .tittle-medium{
+            padding: 5em;
+            color: aqua;
+        }
+.tittle-small{
+    text-align: center;
+    color: red;
+}
+    </style>
+</head>
+<body  onresize="adapt()" 
+       onload="adapt()"   >
+   <h1 id="heading">JS example of adaptive page</h1> 
+   <script>
+
+   function adapt(){
+    const BREAKPOINT1 =1200
+    const BREAKPOINT2 =800
+    let viewportWidth=innerWidth
+        if(viewportWidth >= BREAKPOINT1){
+            heading.className ="tittle-large"
+        }
+        else if(viewportWidth >=BREAKPOINT2){
+            heading.className ="tittle-medium"
+    }
+    else{ heading.className ="tittle-small"}
+    }
+
+//     let year = prompt('В каком году была опубликована спецификация ECMAScript-2015?', '');
+
+// if (year < 2015) {
+//   alert( 'Это слишком рано...' );
+// } else if (year > 2015) {
+//   alert( 'Это поздновато' );
+// } else {
+//   alert( 'Верно!' );
+// }   
+   </script>
+</body>
+</html>

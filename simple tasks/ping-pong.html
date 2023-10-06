@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping-Pong</title>
+    <style>
+        body{
+            background-color: #333;
+        }
+        #arena{
+            width: 500px;
+            height: 500px;
+            border: 2px solid grey;
+            border-top: 5px solid grey;
+            border-bottom: 3px dotted grey;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: center;
+        }
+        #player{
+            width: 50px;
+            height: 10px;
+           background-color:white;
+
+        }
+        #ball{
+            width: 50px;
+            height: 50px;
+            background:radial-gradient(circle farthest-side, red ,coral );
+            border-radius: 100%;
+        }
+       .controll{
+        width: 500px;height: 30px;
+        display: flex;
+        justify-content: space-between;
+       }
+    </style>
+</head>
+<body onkeydown="onKey()">
+    <div id="arena">
+        <div id="ball"></div>
+        <div id="player"></div>
+    </div>
+    <div class="controll">
+    <button onclick="movePlayerLeft()" style=" background: linear-gradient( -45deg , palegoldenrod 50%,orange 50% );width: 50px;">left</button>
+    <button onclick="movePlayerRight()" style=" background: linear-gradient(to bottom left, orange 50%, palegoldenrod 50%);width: 50px;">right</button>
+    </div>
+    <script>
+        let playerX=0
+       function onKey(){ 
+        if(event.code =='ArrowRight' ){
+            movePlayerRight()
+        }
+    }
+
+    function onKey(){ 
+        if(event.code =='ArrowLeft' ){
+            movePlayerLeft()
+        }
+    }
+        function movePlayerRight(){
+         if(playerX<220){
+         playerX += 10
+         player.style=`transform:translateX(${playerX}px)`}
+        }
+
+       
+        function movePlayerLeft(){ 
+            if(playerX> -220){
+         playerX -= 10
+         player.style=`transform:translateX(${playerX}px)`}
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping-Pong</title>
+    <style>
+        body{
+            background-color: #333;
+        }
+        #arena{
+            width: 500px;
+            height: 500px;
+            border: 2px solid grey;
+            border-top: 5px solid grey;
+            border-bottom: 3px dotted grey;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: center;
+        }
+        #player{
+            width: 50px;
+            height: 10px;
+           background-color:white;
+
+        }
+        #ball{
+            width: 50px;
+            height: 50px;
+            background:radial-gradient(circle farthest-side, red ,coral );
+            border-radius: 100%;
+        }
+       .controll{
+        width: 500px;height: 30px;
+        display: flex;
+        justify-content: space-between;
+       }
+    </style>
+</head>
+<body onkeydown="onKey()">
+    <div id="arena">
+        <div id="ball"></div>
+        <div id="player"></div>
+    </div>
+    <div class="controll">
+    <button onclick="movePlayerLeft()" style=" background: linear-gradient( -45deg , palegoldenrod 50%,orange 50% );width: 50px;">left</button>
+    <button onclick="movePlayerRight()" style=" background: linear-gradient(to bottom left, orange 50%, palegoldenrod 50%);width: 50px;">right</button>
+    </div>
+    <script>
+        let playerX=0
+        let playerHastheBall = true 
+        let ballX=0
+        let ballY=0
+        let pathBallX = Math.random() * 20 - 10
+        let pathBallY = -10 
+        const Map_Width = 500
+        const Player_Width = 50
+        const Ball_Width = 50
+        const playerC = 0
+       function onKey(){ 
+        // if(event.code =='ArrowRight'){
+        //     movePlayerRight()
+        // } 
+        // if(event.code =='ArrowLeft'){
+        //     movePlayerLeft()
+        // }
+        // if(event.code =='Space'){
+        //     pushBall()
+        // }
+    switch (event.code) {
+  case 'ArrowRight':
+    movePlayerRight();
+    break;
+  case 'ArrowLeft':
+  movePlayerLeft();
+    break;
+  case 'Space':
+  pushBall();
+    break;
+  
+} 
+}
+
+   
+    
+    function render(){
+      player.style=`transform:translateX(${playerX}px)`
+      ball.style=`transform:translateX(${ballX}px) translateY(${ballY}px)`
+}
+   
+        function movePlayerRight(){
+         if(playerX<Map_Width / 2 - Player_Width / 2){
+         playerX += 5
+         if(playerHastheBall){
+            ballX = playerX
+         }
+         render()
+        }
+        }
+
+       
+        function movePlayerLeft(){ 
+            if(playerX > -Map_Width / 2 + Player_Width / 2){
+         playerX -= 5
+         if(playerHastheBall){
+            ballX = playerX
+         }
+         render()
+       }
+            
+        }
+       function pushBall(){
+          playerHastheBall = false
+          setInterval(moveBall,100)
+        }
+        function moveBall(){
+            if(ballY < -Map_Width / 1.3   - Ball_Width ){
+                pathBallY *= -1
+            }
+            // if(ballY >= ){
+            //     pathBallY *= -1
+            // }
+
+
+            
+            if(ballX < -Map_Width / 2   + Ball_Width / 2 ){
+                pathBallX *= -1
+             }
+            if(ballX > Map_Width / 2  - Ball_Width / 2
+            ){
+                pathBallX *= -1
+            }
+
+            
+            ballX += pathBallX
+            ballY += pathBallY
+            render()
+        }
+    </script>
+</body>
+</html>

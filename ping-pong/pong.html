@@ -32,6 +32,16 @@
             background:radial-gradient(circle farthest-side, red ,coral );
             border-radius: 100%;
         }
+        #scoreDisplay{
+            color: darkred;
+            font-size: large;
+        margin:20px 40px;
+background-color: greenyellow;
+        width: 400px;
+        height: 30px;
+        border: 1px solid black;
+    text-align: center;
+}
        .controll{
         width: 500px;height: 30px;
         display: flex;
@@ -48,7 +58,9 @@
     <button onclick="movePlayerLeft()" style=" background: linear-gradient( -45deg , palegoldenrod 50%,orange 50% );width: 50px;">left</button>
     <button onclick="movePlayerRight()" style=" background: linear-gradient(to bottom left, orange 50%, palegoldenrod 50%);width: 50px;">right</button>
     </div>
+    <div id="scoreDisplay"></div>
     <script>
+       let score = 0
         let playerX=0
         let playerHastheBall = true 
         let ballX=0
@@ -58,7 +70,6 @@
         const Map_Width = 500
         const Player_Width = 50
         const Ball_Width = 50
-        const playerC = 0
        function onKey(){ 
         // if(event.code =='ArrowRight'){
         //     movePlayerRight()
@@ -119,9 +130,20 @@
             if(ballY < -Map_Width / 1.3   - Ball_Width ){
                 pathBallY *= -1
             }
-            // if(ballY >= ){
-            //     pathBallY *= -1
-            // }
+            if(ballY > 0 && ballY < 50 &&  ballX > playerX - 20 && ballX < playerX + 20){
+          pathBallY *= -1
+          score+=5 
+       
+          scoreDisplay.innerHTML = score
+           
+           }
+           if(ballY > Map_Width / 5 - Ball_Width ) {
+             pathBallY *= -1
+             score-=5 
+            
+          scoreDisplay.innerHTML = score + "------" + "OOPs!"
+          
+           }
 
 
             
@@ -138,6 +160,13 @@
             ballY += pathBallY
             render()
         }
+       
+           
+        
+    function shoot(){
+     scoreDisplay.innerHTML = score
+    }
+
     </script>
 </body>
 </html>

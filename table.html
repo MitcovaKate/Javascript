@@ -22,8 +22,8 @@ for(let td = 1;td <= 9;td++){
        
         table +=`</tr><tr>`     
     }
-    if(td ==1&&td==5&&td==9){
-       td.style.cssText +=`${td}<td style="background-color: red">`
+    if(td ==1||td==5||td==9){
+        table +=`<td style="color: red">`
     }
 }
 table +=`  </tr></table>`

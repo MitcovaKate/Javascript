@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: #333;
+            color: chartreuse;
+            line-height: 2rem;
+            letter-spacing: 1rem;
+        }
+
+    </style>
+    <title>2 loops</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        let html=``
+        for(let r=1;r<=10;r++){
+            for(let c=1;c<=10;c++){
+                if(c==1||c==10||r==1||r==10){
+                    html+=`★`
+                } 
+           else{html+=`☆`}
+        }
+        
+        html+=`<br>`
+     }
+    container.innerHTML=html
+    </script>
+</body>
+</html>

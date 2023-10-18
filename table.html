@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table JS</title>
+    <style>
+        body{
+            background: #000;
+            color:#fff;}
+    </style>
+</head>
+<body>
+    <div id="container" ></div>
+    <script>
+        debugger
+let table = `<table border="1"><tr>`
+for(let td = 1;td <= 9;td++){
+    table +=`<td>${td}</td>`
+    if(td%3==0){
+       
+        table +=`</tr><tr>`     
+    }
+    if(td ==1&&td==5&&td==9){
+       td.style.cssText +=`${td}<td style="background-color: red">`
+    }
+}
+table +=`  </tr></table>`
+ container.innerHTML = table
+    </script>
+</body>
+</html>

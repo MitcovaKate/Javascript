@@ -17,14 +17,13 @@
         debugger
 let table = `<table border="1"><tr>`
 for(let td = 1;td <= 9;td++){
-    table +=`<td>${td}</td>`
-    if(td%3==0){
-       
-        table +=`</tr><tr>`     
-    }
     if(td ==1||td==5||td==9){
-         table +=`<td style="color: red">${td}</td>`
+      table +=`<td style="color: red">${td}</td>`}
+        else{table +=`<td>${td}</td>`}
+    if(td%3==0){
+       table +=`</tr><tr>`     
     }
+    
 }
 table +=`  </tr></table>`
  container.innerHTML = table

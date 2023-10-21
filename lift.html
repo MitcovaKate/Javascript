@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: #333;
+        }
+        #building, #user{
+            background-color: #777;
+            border: 2px solid black;
+            width: 100px;
+            height: 800px;
+            float: left;
+        }
+        #building{
+            margin-top: 100px;
+        }
+        #lift,button{ 
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+            transition: 1s;
+        }
+        button { 
+background-color: coral;
+        }
+    </style>
+    <title>Move Lift</title>
+</head>
+<body>
+    <div id="building">
+        <div id="lift" style="transform: translateY(0px);"></div>
+    </div>
+    <div id="user">
+        <button onclick="moveUp()">⇧</button>
+        <button onclick="floor=8;moveLift()">8</button>
+        <button onclick="floor=7;moveLift()">7</button>
+        <button onclick="floor=6;moveLift()">6</button>
+        <button onclick="floor=5;moveLift()">5</button>
+        <button onclick="floor=4;moveLift()">4</button>
+        <button onclick="floor=3;moveLift()">3</button>
+        <button onclick="floor=2;moveLift()">2</button>
+        <button onclick="floor=1;moveLift()">1</button>
+        <button onclick="moveDown()">⇩</button>
+    </div>
+    <script>
+        let floor=0
+        function moveLift(){
+        let y = 800-floor*100
+       lift.style=`transform:translateY(${y}px);` 
+    }
+     function moveUp(){
+         if(floor<8){floor++}
+         moveLift()
+        
+       
+     }
+    function moveDown(){
+        if(floor>1){floor--}
+         moveLift()
+    }
+    </script>
+</body>
+</html>
